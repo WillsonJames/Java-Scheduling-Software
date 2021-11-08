@@ -1,0 +1,43 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<DialogPane fx:controller="CustomerDialogController"
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-font-family: Times New Roman bold;">
+    <header>
+        <Label text="%Customer">
+            <font>
+                <Font name="Times New Roman bold" size="25.0" />
+            </font>
+        </Label>
+    </header>
+    <content>
+        <VBox>
+            <Label text="%ID"/>
+            <TextField  fx:id="addID" editable="false"/>
+            <Label text="%Name"/>
+            <TextField fx:id="addName"/>
+
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="Country" />
+                </fx:define>
+                <RadioButton fx:id="unitedStates" text="%UnitedStates" toggleGroup="$Country" onMouseClicked="#countryClickedUS"/>
+                <RadioButton fx:id="canada" text="%Canada" toggleGroup="$Country" onMouseClicked="#countryClickedCanada"/>
+                <RadioButton fx:id="unitedKingdom" text="%UnitedKingdom" toggleGroup="$Country" onMouseClicked="#countryClickedUK"/>
+            </HBox>
+
+            <Label text="%State/Province"/>
+            <ComboBox fx:id="province" />
+            <Label text="%City/Township"/>
+            <TextField fx:id="addCity"/>
+            <Label text="%Address"/>
+            <TextField fx:id="addAddress"/>
+            <Label text="%Postal"/>
+            <TextField  fx:id="addPostal"/>
+            <Label text="%Phone"/>
+            <TextField  fx:id="addPhone"/>
+        </VBox>
+    </content>
+</DialogPane>

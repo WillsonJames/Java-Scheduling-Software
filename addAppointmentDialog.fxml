@@ -1,0 +1,53 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+
+<DialogPane fx:controller="AppointmentDialogController"
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-font-family: Times New Roman bold;">
+    <header>
+        <Label text="%Appointment">
+            <font>
+                <Font name="Times New Roman bold" size="25.0" />
+            </font>
+        </Label>
+    </header>
+    <content>
+            <VBox>
+                <Label text="%Customer"/>
+                <ComboBox fx:id="customerCombo" />
+                <Label text="%ID"/>
+                <TextField  fx:id="addID" editable="false"/>
+                <Label text="%Title"/>
+                <TextField fx:id="addTitle"/>
+                <Label text="%Description"/>
+                <TextField fx:id="addDescription"/>
+                <Label text="%Location"/>
+                <TextField fx:id="addLocation"/>
+                <Label text="%Type"/>
+                <TextField  fx:id="addType"/>
+                <Label text="%StartDate"/>
+                <DatePicker fx:id="addStartDateSelection"/>
+                <Label/>
+                <Label text="%StartTime"/>
+                <HBox>
+                    <fx:define>
+                        <ToggleGroup fx:id="startAMPM" />
+                    </fx:define>
+                    <RadioButton fx:id="addStartAM" text="%AM" toggleGroup="$startAMPM"/>
+                    <RadioButton fx:id="addStartPM" text="%PM" toggleGroup="$startAMPM"/>
+                    <Label text="%Hour"/>
+                    <TextField fx:id="addStartHour"/>
+                    <Label text="%Minutes"/>
+                    <TextField fx:id="addStartMin"/>
+                </HBox>
+                <Label text="%Duration(Minutes)"/>
+                <TextField  fx:id="duration"/>
+                <Label text="%Contact"/>
+                <ComboBox fx:id="contactCombo" />
+                <Label text="%Associateduser"/>
+                <ComboBox fx:id="userCombo" />
+        </VBox>
+    </content>
+</DialogPane>

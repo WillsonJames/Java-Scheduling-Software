@@ -1,0 +1,161 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane fx:id="mainPage" fx:controller="Controller"
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-font-family: Times New Roman bold">
+    <left>
+        <VBox>
+            <Label text="%Customers">
+                <font>
+                    <Font name="Times New Roman bold" size="25.0" />
+                </font>
+            </Label>
+            <HBox>
+                <Button text="%Login" onMouseClicked="#loginWindow"/>
+                <Label text="%LoggedIn"/>
+                <TextField  fx:id="loggedIn" editable="false"/>
+                <Label text="ID:"/>
+                <TextField  fx:id="loggedInID" editable="false"/>
+            </HBox>
+
+            <TableView fx:id="CustomersList">
+                <columns>
+                    <TableColumn text="%ID" prefWidth="40.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Name" prefWidth="75.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Address" prefWidth="200.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="address"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Postal" prefWidth="75.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="postal" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Phone" prefWidth="100.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="phone"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Label text="%Customersmonth"/>
+            <HBox>
+                <ComboBox fx:id="monthCombo" onAction="#monthComboClicked" disable="true"/>
+                <TextField fx:id="monthReport" editable="false"/>
+            </HBox>
+            <Label text="%Customerstype"/>
+            <HBox>
+                <ComboBox fx:id="typeCombo" onAction="#typeComboClicked" disable="true"/>
+                <TextField fx:id="typeReport" editable="false"/>
+            </HBox>
+            <Label text="%Customerstypemonth"/>
+            <TextField fx:id="typemonthReport" editable="false"/>
+            <Button text="%Modify" prefWidth="90"
+                    onAction="#modifyCustomer"/>
+            <Button text="%Add" prefWidth="90"
+                    onAction="#addCustomer"/>
+            <Button text="%Delete" prefWidth="90"
+                    onAction="#deleteCustomer"/>
+        </VBox>
+    </left>
+
+    <right>
+        <VBox>
+            <Label text="%Appointments" style="font-weight: bold; font-size: 25px;">
+                <font>
+                    <Font name="Times New Roman bold" size="25.0" />
+                </font>
+            </Label>
+            <TableView fx:id="AppointmentsList">
+                <columns>
+                    <TableColumn text="%ID" prefWidth="40.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Title" prefWidth="150.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="title"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Description" prefWidth="200.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="description"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Location" prefWidth="75.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="location"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Type" prefWidth="75.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="type"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Contact" prefWidth="75.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="contact"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Start" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="start"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%End" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="end"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="%Customer" prefWidth="75.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="customerID"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <Label text="%Sortbycontact"/>
+            <HBox>
+                <ComboBox fx:id="contactCombo" onAction="#selectContactCombo"/>
+                <Button text="%ViewAll" onMouseClicked="#clearContactCombo"/>
+                <Label text="%contactReport"/>
+                <TextField  fx:id="contactReport" editable="false"/>
+                <Label text="%contactReportMinutes"/>
+                <TextField  fx:id="contactReportMinutes" editable="false"/>
+            </HBox>
+
+                <fx:define>
+                    <ToggleGroup fx:id="weekMonth" />
+                </fx:define>
+                <RadioButton fx:id="monthButton" text="%bymonth" toggleGroup="$weekMonth" onMouseClicked="#monthClicked"/>
+                <ComboBox fx:id="weekMonthCombo" onAction="#monthSelected" disable="true"/>
+
+            <RadioButton fx:id="weekButton" text="%byweek" toggleGroup="$weekMonth" onMouseClicked="#weekClicked"/>
+            <DatePicker fx:id="weekSelection" onAction="#weekSelected" disable="true"/>
+
+            <Button text="%Modify" prefWidth="90"
+                    onAction="#modifyAppointment"/>
+            <Button text="%Add" prefWidth="90"
+                    onAction="#addAppointment"/>
+            <Button text="%Delete" prefWidth="90"
+                    onAction="#deleteAppointment"/>
+        </VBox>
+    </right>
+</BorderPane>
+
+
