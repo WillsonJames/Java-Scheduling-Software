@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 /**
  *
  * @author James Fuller
- * C195 project Final
  * 07/26/2021
  */
 
